@@ -1,0 +1,10 @@
+p {
+    padding: 20px;
+    background-color: mistyrose;
+    border: 1px solid red;
+    text-align: center;
+    border-radius: 25px;
+    margin-left: 30px;
+    margin-right: 1000px;
+    height: 500px;
+}

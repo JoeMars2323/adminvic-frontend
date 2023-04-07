@@ -1,0 +1,218 @@
+/*---------------------------------------------------------
+ * GENERAL
+ *---------------------------------------------------------*/
+
+ .bg-black {
+  background-color: black;
+  background-size: cover;
+}
+
+.pointerCursor {
+  cursor: pointer;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+i {
+  padding-left: 10px;
+  padding-right: 20px;
+}
+
+ul {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+
+
+/*---------------------------------------------------------
+ * SIDEBAR
+ *---------------------------------------------------------*/
+
+.sidebar {
+  min-height: 800px;
+  width: 300px !important;
+  list-style: none;
+}
+
+.sidebar-brand {
+  height: 40px;
+  font-size: 30px;
+  font-weight: 800;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 5px;
+  color: red;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.sidebar-divider {
+  margin: 10px 10px 10px;
+  border: 1px solid red;
+  border-radius: 5px;
+}
+
+.sidebar .nav-item {
+  position: relative;
+}
+
+.sidebar .nav-item .nav-link span {
+  font-size: 15px;
+  letter-spacing: 2px;
+  display: inline;
+}
+
+.collapse {
+  display: block;
+}
+
+.collapsing {
+  position: relative;
+  height: 0;
+}
+
+.sidebar .nav-item .collapsing {
+  display: none;
+  transition: none;
+}
+
+.sidebar .nav-item .collapse,
+.sidebar .nav-item .collapsing {
+  margin: 0 15px;
+}
+
+.sidebar .nav-item .collapse .collapse-inner .collapse-item,
+.sidebar .nav-item .collapsing .collapse-inner .collapse-item {
+  padding: 5px;
+  padding-left: 10px;
+  margin: 0 1px;
+  display: block;
+  color: black;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.sidebar .nav-item .collapse .collapse-inner .collapse-item:hover,
+.sidebar .nav-item .collapsing .collapse-inner .collapse-item:hover {
+  background-color: #eaecf4;
+}
+
+.sidebar .nav-item .collapse .collapse-inner .collapse-item:active,
+.sidebar .nav-item .collapsing .collapse-inner .collapse-item:active {
+  background-color: white;
+}
+
+.sidebar .nav-item .collapse .collapse-inner {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.sidebar .nav-item .nav-link span:hover {
+  color: red;
+}
+
+.sidebar .nav-item .nav-link {
+  display: block;
+  width: 100px;
+  text-align: left;
+  padding: 15px;
+  width: 300px;
+}
+
+
+
+/*---------------------------------------------------------
+ * NAVBAR
+ *---------------------------------------------------------*/
+
+.navbar-nav {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.navbar-search {
+  width: 400px;
+  display: inline-block;
+}
+
+.search-input {
+  display: inline-block;
+  width: 300px;
+  height: 38px;
+  background-color: white;
+  color: black;
+  vertical-align: middle;
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  padding: 5px 5px;
+  font-size: 17px;
+  border-radius: 0;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.btn:hover {
+  color: white;
+  background-color: darkred;
+}
+
+.settings {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.btn-settings {
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.dropdown {
+  width: 99%;
+}
+
+
+
+/*---------------------------------------------------------
+ * WRAPPER
+ *---------------------------------------------------------*/
+
+.container-fluid {
+  width: 100%;
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#wrapper {
+  display: flex;
+}
+
+#wrapper #content-wrapper {
+  background-color: white;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+#wrapper #content-wrapper #content {
+  flex: 1 0 auto;
+}
