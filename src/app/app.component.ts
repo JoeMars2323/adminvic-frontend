@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Actor } from './restrict/actors/actor';
+import { Actor } from './restrict/models/actor';
 
 @Component({
   selector: 'app-root',

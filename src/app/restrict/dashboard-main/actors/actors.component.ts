@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { Actor } from './actor';
+import { Actor } from '../../models/actor';
 import { ActorService } from 'src/app/shared/actor.service';
 
 @Component({
@@ -13,6 +13,9 @@ export class ActorsComponent implements OnInit {
 
   actorList!: Actor[];
   actor!: Actor;
+  mainVisible = true;
+  childVisible = false;
+  action!: string;
 
   constructor(private actorService: ActorService, private router: Router, private route: ActivatedRoute) { }
 
@@ -24,21 +27,36 @@ export class ActorsComponent implements OnInit {
     this.actorService.getAllActors().subscribe(
       data => {
         this.actorList = data;
-        console.log('test');
-        console.log("-> " + this.actorList);
       });      
   }
 
   onCreate() {
-  }
-
-  onView() {
+    this.action = 'Create new Actor';
+    this.mainVisible = false;
+    this.childVisible = true;
+    this.router.navigate(['actor/create'], { relativeTo: this.route });
   }
 
   onUpdate() {
+    this.action = 'Update Actor';
+    this.mainVisible = false;
+    this.childVisible = true;
+    this.router.navigate(['actor/update'], { relativeTo: this.route });
+  }
+
+  onView() {
+    this.action = 'Vew Actor';
+    this.mainVisible = false;
+    this.childVisible = true;
+    this.router.navigate(['actor/view'], { relativeTo: this.route });
   }
 
   onDelete() {
   }
 
+  showMainEvent(flag: boolean) {
+    this.mainVisible = true;
+    this.childVisible = false;
+    
+  }
 }

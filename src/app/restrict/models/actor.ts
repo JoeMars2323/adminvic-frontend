@@ -1,7 +1,7 @@
-import { Award } from "../models/award";
-import { DefaultAbstract } from "../models/default-abstract";
-import { Film } from "../models/film";
-import { Tvserie } from "../models/tvserie";
+import { Award } from "./award";
+import { DefaultAbstract } from "./default-abstract";
+import { Film } from "./film";
+import { Tvserie } from "./tvserie";
 
 export class Actor {
 

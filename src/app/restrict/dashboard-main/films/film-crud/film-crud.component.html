@@ -1,0 +1,38 @@
+<div class="title"> {{action}} </div>
+
+<div class="back-button">
+    <button class="btn btn-secondary" type="button" (click)="onBack(event)">
+        <i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+</div>
+
+<form #form="ngForm">
+    <div class="form-crud">
+        
+        <div class="row">
+            <div class="col-sm-6">
+                <label class="label" for="date">Name:</label>
+                <input required id="date" name="date" type="text" class="form-control">
+            </div>
+            <div class="col-sm-2">
+                <label class="label" for="date">Year:</label>
+                <input required id="date" name="date" type="text" class="form-control">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-8">
+                <label class="label"> Description:</label>
+                <textarea name="expenseName" type="text" rows="2" class="form-control ml-1"></textarea>
+            </div>
+        </div>
+        
+        <div class="row" *ngIf="!read">
+            <div class="btn-align">
+                <button class="btn btn-primary" type="submit" >Submit</button>
+                &nbsp;
+                <button class="btn btn-danger" type="button" >Clear</button>
+            </div>
+        </div>
+    </div>
+
+</form>

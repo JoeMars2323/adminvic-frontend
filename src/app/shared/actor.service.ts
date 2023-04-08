@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams  } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Actor } from 'src/app/restrict/actors/actor';
-
+import { Actor } from 'src/app/restrict/models/actor';
 
 @Injectable({
   providedIn: 'root'
@@ -48,7 +47,5 @@ export class ActorService {
     let params = new HttpParams().set('id', id.toString());
     return this.http.delete<boolean>(this.url + 'actors/actor/', { params: params });
   }
-
-
 
 }
