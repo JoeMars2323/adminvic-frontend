@@ -1,1 +1,42 @@
-<p>tvseries works!</p>
+<div *ngIf="mainVisible">
+    <div class="title">
+        <h1 class="h3 mb-0 text-blue">TV Series</h1>
+    </div> 
+    <div class="btn-create">
+        <button class="btn btn-success" type="button" (click)="onCreate()">
+            <span>Create new TV Serie </span><i class="fa fa-plus" aria-hidden="true"></i>
+        </button>
+    </div>
+    <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+            <th style="display: none;" scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col" colspan="3">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of tvserieList; let i=index">
+            <td style="display: none;">{{ item.id }}</td>
+            <td>{{ item.tvserieName }}</td>
+            <td class="align-center" colspan="3">
+                <button class="btn btn-primary" type="button" (click)="onView(i)">
+                    <i class="fa fa-eye" aria-hidden="true"></i>
+                </button>
+                &nbsp;
+                <button class="btn btn-secondary" type="button" (click)="onUpdate(i)">
+                    <i class="fa fa-refresh" aria-hidden="true"></i>
+                </button>
+                &nbsp;
+                <button class="btn btn-danger" type="button" (click)="onDelete()">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div *ngIf="childVisible">
+    <app-tvserie-crud [action]="action" (showMain)="showMainEvent($event)"></app-tvserie-crud>
+</div>

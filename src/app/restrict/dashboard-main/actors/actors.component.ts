@@ -9,15 +9,15 @@ import { ActorService } from 'src/app/shared/actor.service';
   templateUrl: './actors.component.html',
   styleUrls: ['./actors.component.css']
 })
+
 export class ActorsComponent implements OnInit {
 
   actorList!: Actor[];
-  actor!: Actor;
   mainVisible = true;
   childVisible = false;
   action!: string;
 
-  constructor(private actorService: ActorService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private router: Router, private route: ActivatedRoute, private actorService: ActorService) { }
 
   ngOnInit(): void {
     this.getActorList();
@@ -34,21 +34,21 @@ export class ActorsComponent implements OnInit {
     this.action = 'Create new Actor';
     this.mainVisible = false;
     this.childVisible = true;
-    this.router.navigate(['actor/create'], { relativeTo: this.route });
+    this.router.navigate(['../actors/create'], { relativeTo: this.route });
   }
 
-  onUpdate() {
+  onUpdate(index: number) {
     this.action = 'Update Actor';
     this.mainVisible = false;
     this.childVisible = true;
-    this.router.navigate(['actor/update'], { relativeTo: this.route });
+    this.router.navigate(['../actors/update', ++index], { relativeTo: this.route });
   }
 
-  onView() {
+  onView(index: number) {
     this.action = 'Vew Actor';
     this.mainVisible = false;
     this.childVisible = true;
-    this.router.navigate(['actor/view'], { relativeTo: this.route });
+    this.router.navigate(['../actors/view', ++index], { relativeTo: this.route });
   }
 
   onDelete() {

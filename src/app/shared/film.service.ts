@@ -1,6 +1,7 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
+
 import { Film } from '../restrict/models/film';
 
 @Injectable({
@@ -17,15 +18,15 @@ export class FilmService {
 
   // rest functions
   public getFilmById(id: number): Observable<Film> {
-    let params = new HttpParams().set('id', id);
-    return this.http.get<Film>(this.url + 'films/film/', { params: params });
+    let params = new HttpParams().set('id', id.toString());
+    return this.http.get<Film>(this.url + 'films/film/' + id);
   }
 
-   public getAllFilms(): Observable<Film[]> {
+  public getAllFilms(): Observable<Film[]> {
      return this.http.get<Film[]>(this.url + 'films');
    }
 
-   public createFilm(film: Film): Observable<boolean> {
+  public createFilm(film: Film): Observable<boolean> {
     return this.http.post<boolean>(this.url + 'films/', film);
   }
 

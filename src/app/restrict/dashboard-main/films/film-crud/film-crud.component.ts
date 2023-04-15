@@ -1,11 +1,15 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+
+import { Film } from 'src/app/restrict/models/film';
+import { FilmService } from 'src/app/shared/film.service';
 
 @Component({
   selector: 'app-film-crud',
   templateUrl: './film-crud.component.html',
   styleUrls: ['./film-crud.component.css']
 })
+
 export class FilmCrudComponent implements OnInit {
 
   event = true;
@@ -13,10 +17,13 @@ export class FilmCrudComponent implements OnInit {
   read = false;
   update = false;
 
+  id!: number;
+  film: Film = new Film();
+
   @Input() action!: string;
   @Output() showMain = new EventEmitter<boolean>();
 
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  constructor(private router: Router, private route: ActivatedRoute, private filmService: FilmService) { }
 
   ngOnInit(): void {
     this.selectAction();
@@ -39,7 +46,7 @@ export class FilmCrudComponent implements OnInit {
         this.read = false;
         this.update = true;
         break;
-      default:
+        case 'Vew Film':
         this.create = false;
         this.read = true;
         this.update = false;
@@ -47,5 +54,23 @@ export class FilmCrudComponent implements OnInit {
     }
   }
 
+  loadData() {
+    this.route.paramMap.subscribe(
+      (params: Params) => {
+        this.id = params['id'];
+      }
+    )
+    this.filmService.getFilmById(this.id).subscribe(
+      data => {
+        this.film = data;
+      }
+    );
+  }
+
+  clearActor() {
+    this.film.filmName = '';
+    this.film.filmYear = 0;
+    this.film.filmDescription = '';
+  }
 
 }

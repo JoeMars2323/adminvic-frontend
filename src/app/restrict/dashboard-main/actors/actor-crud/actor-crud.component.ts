@@ -1,11 +1,15 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
+import { Actor } from 'src/app/restrict/models/actor';
+import { ActorService } from 'src/app/shared/actor.service';
+
 @Component({
   selector: 'app-actor-crud',
   templateUrl: './actor-crud.component.html',
   styleUrls: ['./actor-crud.component.css']
 })
+
 export class ActorCrudComponent implements OnInit {
 
   event = true;
@@ -13,10 +17,13 @@ export class ActorCrudComponent implements OnInit {
   read = false;
   update = false;
 
+  id!: number;
+  actor: Actor = new Actor();
+
   @Input() action!: string;
   @Output() showMain = new EventEmitter<boolean>();
 
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  constructor(private router: Router, private route: ActivatedRoute, private actorService: ActorService) {}
 
   ngOnInit(): void {
     this.selectAction();
@@ -35,11 +42,13 @@ export class ActorCrudComponent implements OnInit {
         this.update = false;
         break;
       case 'Update Actor':
+        this.loadData();
         this.create = false;
         this.read = false;
         this.update = true;
         break;
-      default:
+      case 'Vew Actor':
+        this.loadData();
         this.create = false;
         this.read = true;
         this.update = false;
@@ -47,6 +56,39 @@ export class ActorCrudComponent implements OnInit {
     }
   }
 
-  
+  loadData() {
+    this.route.paramMap.subscribe(
+      (params: Params) => {
+        this.id = params['id'];
+      }
+    )
+    this.actorService.getActorById(this.id).subscribe(
+      data => {
+        this.actor = data;
+      }
+    );
+  }
+
+  clearActor() {
+    this.actor.actorName = '';
+    this.actor.actorBirthName = '';
+    this.actor.actorNickname = '';
+    this.actor.actorCity = '';
+    this.actor.actorBiography = '';
+    this.actor.actorCountry = '';
+    this.actor.actorHeight = '';
+    this.actor.actorBirthDate = '';
+  }
+
+  onClear() {
+    this.clearActor
+  }
+
+  onSubmit() {
+    this.actorService.createActor(this.actor).subscribe(
+     data => {}
+    );
+    this.clearActor();
+ }
 
 }

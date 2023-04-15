@@ -2,7 +2,8 @@
 
 <div class="back-button">
     <button class="btn btn-secondary" type="button" (click)="onBack(event)">
-        <i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    </button>
 </div>
 
 <form #form="ngForm">
@@ -10,53 +11,61 @@
 
         <div class="col-sm-8">
             <label class="label" for="name">Name:</label>
-            <input required id="name" name="name" type="text" class="form-control ml-1">
+            <input required id="name" name="name" type="text" class="form-control ml-1" 
+                [(ngModel)]="actor.actorName">
         </div>
         
         <div class="col-sm-8">
             <label class="label" for="date" >Birth Name:</label>
-            <input required id="date" name="date" type="text" class="form-control">
+            <input required id="date" name="date" type="text" class="form-control" 
+                [(ngModel)]="actor.actorBirthName">
         </div>
 
         <div class="col-sm-8">
             <label class="label" for="name">Nickname:</label>
-            <input required id="name" name="name" type="text" class="form-control ml-1">
+            <input required id="name" name="name" type="text" class="form-control ml-1" 
+                [(ngModel)]="actor.actorNickname">
         </div>
         
         <div class="row">
             <div class="col-sm-4">
                 <label class="label" for="date">Country:</label>
-                <input required id="date" name="date" type="text" class="form-control">
+                <input required id="date" name="date" type="text" class="form-control" 
+                    [(ngModel)]="actor.actorCountry">
             </div>
             <div class="col-sm-4">
                 <label class="label" for="date">City:</label>
-                <input required id="date" name="date" type="text" class="form-control">
+                <input required id="date" name="date" type="text" class="form-control" 
+                    [(ngModel)]="actor.actorCity">
             </div>
         </div>
 
         <div class="row">
             <div class="col-sm-4">
                 <label class="label" for="date"> Birthdate:</label>
-                <input required id="date" name="date" type="text" class="form-control">
+                <input required id="date" name="date" type="text" class="form-control" 
+                    [(ngModel)]="actor.actorBirthDate">
             </div>
             <div class="col-sm-2">
                 <label class="label" for="date">Height:</label>
-                <input required id="date" name="date" type="text" class="form-control">
+                <input required id="date" name="date" type="text" class="form-control" 
+                    [(ngModel)]="actor.actorHeight">
             </div>
         </div>
 
         <div class="row">
             <div class="col-sm-8">
                 <label class="label"> Biography:</label>
-                <textarea name="expenseName" type="text" rows="2" class="form-control ml-1"></textarea>
+                <textarea name="expenseName" type="text" rows="2" class="form-control ml-1" 
+                    [(ngModel)]="actor.actorBiography"></textarea>
             </div>
         </div>
         
         <div class="row" *ngIf="!read">
             <div class="btn-align">
-                <button class="btn btn-primary" type="submit" >Submit</button>
+                <button class="btn btn-success" type="submit" (click)="onSubmit()">Submit</button>
                 &nbsp;
-                <button class="btn btn-danger" type="button" >Clear</button>
+                <button class="btn btn-danger" type="button" (click)="onClear()">Clear</button>
             </div>
         </div>
     </div>

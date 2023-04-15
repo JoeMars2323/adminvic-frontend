@@ -2,18 +2,12 @@
  * GENERAL
  *---------------------------------------------------------*/
 
- .bg-black {
-  background-color: black;
-  background-size: cover;
+ .wrapper {
+  display: flex;
 }
 
 .pointerCursor {
   cursor: pointer;
-}
-
-p {
-  margin-top: 0;
-  margin-bottom: 5px;
 }
 
 i {
@@ -21,8 +15,8 @@ i {
   padding-right: 20px;
 }
 
-ul {
-  margin-top: 0;
+p {
+  margin-top: 5px;
   margin-bottom: 5px;
 }
 
@@ -34,23 +28,22 @@ ul {
 
 .sidebar {
   min-height: 800px;
-  width: 300px !important;
+  width: 300px;
   list-style: none;
+  background-color: black;
 }
 
 .sidebar-brand {
   height: 40px;
   font-size: 30px;
   font-weight: 800;
-  padding-top: 50px;
-  padding-bottom: 50px;
   text-align: center;
   text-transform: uppercase;
   text-decoration: none;
   letter-spacing: 5px;
   color: red;
-  align-items: center !important;
-  justify-content: center !important;
+  align-items: center;
+  justify-content: center;
 }
 
 .sidebar-divider {
@@ -59,14 +52,15 @@ ul {
   border-radius: 5px;
 }
 
-.sidebar .nav-item {
-  position: relative;
-}
-
-.sidebar .nav-item .nav-link span {
+.nav-item {
   font-size: 15px;
   letter-spacing: 2px;
   display: inline;
+  color: white;
+}
+
+.nav-item:hover {
+  color: red;
 }
 
 .collapse {
@@ -78,47 +72,30 @@ ul {
   height: 0;
 }
 
-.sidebar .nav-item .collapsing {
+.nav-item .collapsing {
   display: none;
   transition: none;
 }
 
-.sidebar .nav-item .collapse,
-.sidebar .nav-item .collapsing {
+.nav-item .collapse {
   margin: 0 15px;
 }
 
-.sidebar .nav-item .collapse .collapse-inner .collapse-item,
-.sidebar .nav-item .collapsing .collapse-inner .collapse-item {
+.nav-item .collapse-item {
   padding: 5px;
   padding-left: 10px;
   margin: 0 1px;
   display: block;
-  color: black;
+  color: white;
   text-decoration: none;
   border-radius: 5px;
 }
 
-.sidebar .nav-item .collapse .collapse-inner .collapse-item:hover,
-.sidebar .nav-item .collapsing .collapse-inner .collapse-item:hover {
-  background-color: #eaecf4;
+.nav-item .collapse-item:hover {
+  background-color: red;
 }
 
-.sidebar .nav-item .collapse .collapse-inner .collapse-item:active,
-.sidebar .nav-item .collapsing .collapse-inner .collapse-item:active {
-  background-color: white;
-}
-
-.sidebar .nav-item .collapse .collapse-inner {
-  border-radius: 0;
-  box-shadow: none;
-}
-
-.sidebar .nav-item .nav-link span:hover {
-  color: red;
-}
-
-.sidebar .nav-item .nav-link {
+.nav-link {
   display: block;
   width: 100px;
   text-align: left;
@@ -132,12 +109,8 @@ ul {
  * NAVBAR
  *---------------------------------------------------------*/
 
-.navbar-nav {
-  display: flex;
-  flex-direction: column;
-  padding-left: 0;
-  margin-bottom: 0;
-  list-style: none;
+ .navbar-content {
+  width: 100%;
 }
 
 .navbar-search {
@@ -192,27 +165,13 @@ ul {
 
 
 /*---------------------------------------------------------
- * WRAPPER
+ * CONTAINER
  *---------------------------------------------------------*/
 
 .container-fluid {
   width: 100%;
-  padding-right: 0.75rem;
-  padding-left: 0.75rem;
+  padding-right: 10px;
+  padding-left: 10px;
   margin-right: auto;
   margin-left: auto;
-}
-
-#wrapper {
-  display: flex;
-}
-
-#wrapper #content-wrapper {
-  background-color: white;
-  width: 100%;
-  overflow-x: hidden;
-}
-
-#wrapper #content-wrapper #content {
-  flex: 1 0 auto;
 }

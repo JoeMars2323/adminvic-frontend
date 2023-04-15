@@ -8,6 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './films.component.html',
   styleUrls: ['./films.component.css']
 })
+
 export class FilmsComponent implements OnInit {
 
   filmsList!: Film[];
@@ -16,7 +17,7 @@ export class FilmsComponent implements OnInit {
   childVisible = false;
   action!: string;
 
-  constructor(private filmService: FilmService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private router: Router, private route: ActivatedRoute, private filmService: FilmService) { }
 
   ngOnInit(): void {
     this.getFilmList();
@@ -26,8 +27,8 @@ export class FilmsComponent implements OnInit {
     this.filmService.getAllFilms().subscribe(
       data => {
         this.filmsList = data;
-        console.log('test');
-        console.log(this.filmService);
+        this.filmsList.forEach(function(value) {
+        });
       });      
   }
 
@@ -38,14 +39,14 @@ export class FilmsComponent implements OnInit {
     this.router.navigate(['film/create'], { relativeTo: this.route });
   }
 
-  onUpdate() {
+  onUpdate(index: number) {
     this.action = 'Update Film';
     this.mainVisible = false;
     this.childVisible = true;
     this.router.navigate(['film/update'], { relativeTo: this.route });
   }
 
-  onView() {
+  onView(index: number) {
     this.action = 'Vew Film';
     this.mainVisible = false;
     this.childVisible = true;

@@ -18,17 +18,17 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let item of actorList">
+        <tr *ngFor="let item of actorList; let i=index">
             <td style="display: none;">{{ item.id }}</td>
             <td>{{ item.actorName }}</td>
             <td>{{ item.actorCountry }}</td>
             <td>{{ item.actorBirthDate }}</td>
             <td class="align-center" colspan="3">
-                <button class="btn btn-primary" type="button" (click)="onView()">
+                <button class="btn btn-primary" type="button" (click)="onView(i)">
                     <i class="fa fa-eye" aria-hidden="true"></i>
                 </button>
                 &nbsp;
-                <button class="btn btn-secondary" type="button" (click)="onUpdate()">
+                <button class="btn btn-secondary" type="button" (click)="onUpdate(i)">
                     <i class="fa fa-refresh" aria-hidden="true"></i>
                 </button>
                 &nbsp;

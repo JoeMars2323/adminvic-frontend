@@ -1,99 +1,94 @@
-<div id="wrapper">
+<div class="wrapper">
 
   <!-- Sidebar -->
-  <ul class="sidebar bg-black">
-    <a class="sidebar-brand d-flex">
+  <ul class="sidebar">
+    <a class="sidebar-brand">
       <p>AdminViC</p>
     </a>
 
     <hr class="sidebar-divider">
 
-      <!-- contents -->
-      <li class="nav-item">
-        <div class="text-white pointerCursor" (click)="openContents()">
-          <a class="nav-link collapsed">
-            <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> <span>Contents</span> 
-          </a>
-        </div>
-        <div class="collapse" *ngIf="contents">
-          <div class="bg-white collapse-inner rounded" >
-            <a class="collapse-item pointerCursor" routerLink="actors" style="cursor: pointer;">Actors</a>
-            <a class="collapse-item pointerCursor" routerLink="films" style="cursor: pointer;">Films</a>
-            <a class="collapse-item pointerCursor" routerLink="tvseries" style="cursor: pointer;">Tv Series</a>
-          </div>
-        </div>
-      </li>
-
-      <hr class="sidebar-divider" >
-
-      <!-- subscriptions -->
-      <li class="nav-item">
-        <div class="text-white pointerCursor" (click)="openSubscriptions()">
-          <a class="nav-link collapsed">
-            <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> <span>Subscriptions</span>
-          </a>
-        </div>
-        <div class="collapse" *ngIf="subscriptions">
-          <div class="bg-white collapse-inner rounded" >
-            <a class="collapse-item pointerCursor" routerLink="despesas/adicionar-despesa/fixa" style="cursor: pointer;">Profiles</a>
-            <a class="collapse-item pointerCursor" routerLink="despesas/adicionar-despesa/variavel" style="cursor: pointer;">Recommendations</a>
-            <a class="collapse-item pointerCursor" routerLink="despesas/adicionar-despesa/curta" style="cursor: pointer;">Subscriptions</a>
-            <a class="collapse-item pointerCursor" routerLink="despesas/adicionar-despesa/longa" style="cursor: pointer;">Visualizations</a>
-          </div>
-        </div>
-      </li>
-
-      <hr class="sidebar-divider">
-
-      <!-- configurations -->
-      <li class="nav-item">
-        <div class="text-white pointerCursor" (click)="openConfigurations()">
-          <a class="nav-link collapsed">
-            <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> <span>Configuration</span>
-          </a>
-        </div>
-        <div class="collapse" *ngIf="configurations">
-          <div class="bg-white collapse-inner rounded" >
-            <a class="collapse-item pointerCursor" routerLink="despesas/adicionar-despesa/fixa" style="cursor: pointer;">Config Tool</a>
-          </div>
-        </div>
-      </li>
-      
-      <hr class="sidebar-divider">
-    </ul>
-
-    <!-- Navbar -->
-    <div id="content-wrapper" class="d-flex flex-column">
-      <div id="content">
-        <nav class="navbar bg-black">
-          <form>
-            <div class="navbar-search">
-              <input type="text" class="search-input" placeholder="Search by..." aria-label="Search">
-                  <button class="btn btn-danger" type="button">
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                  </button>
-              </div>
-          </form>
-
-          <div class="settings">
-            <div ngbDropdown>
-              <button class="btn btn-settings btn-danger" ngbDropdownToggle>Wellcome {{ username }}
-                <i class="fa fa-user-circle" aria-hidden="true"></i>
-              </button>
-              <div class="dropdown" ngbDropdownMenu>
-                <button ngbDropdownItem><i class="fa fa-user" aria-hidden="true"></i> Pofile</button>
-                <button ngbDropdownItem><i class="fa fa-wrench" aria-hidden="true"></i> Definitions</button>
-                <button ngbDropdownItem routerLink="/"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</button>
-              </div>
-            </div>
-          </div>
-        </nav>
-        
-
-      <!--Wrapper-->  
-      <div class="container-fluid">
-        <router-outlet></router-outlet> 
+    <!-- contents -->
+    <li class="nav-item">
+      <div class="pointerCursor" (click)="openContents()">
+        <a class="nav-link">
+          <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> <span>Contents</span>
+        </a>
       </div>
+      <div class="collapse" *ngIf="contents">
+        <a class="collapse-item pointerCursor" routerLink="actors">Actors</a>
+        <a class="collapse-item pointerCursor" routerLink="films">Films</a>
+        <a class="collapse-item pointerCursor" routerLink="tvseries">Tv Series</a>
+      </div>
+    </li>
+
+    <hr class="sidebar-divider">
+
+    <!-- subscriptions -->
+    <li class="nav-item">
+      <div class="pointerCursor" (click)="openSubscriptions()">
+        <a class="nav-link">
+          <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> <span>Subscriptions</span>
+        </a>
+      </div>
+      <div class="collapse" *ngIf="subscriptions">
+        <a class="collapse-item pointerCursor" routerLink="profiles">Profiles</a>
+        <a class="collapse-item pointerCursor" routerLink="recommendations">Recommendations</a>
+        <a class="collapse-item pointerCursor" routerLink="subscriptions">Subscriptions</a>
+        <a class="collapse-item pointerCursor" routerLink="visualizations">Visualizations</a>
+      </div>
+    </li>
+
+    <hr class="sidebar-divider">
+
+    <!-- configurations -->
+    <li class="nav-item">
+      <div class="pointerCursor" (click)="openConfigurations()">
+        <a class="nav-link">
+          <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> <span>Configuration</span>
+        </a>
+      </div>
+      <div class="collapse" *ngIf="configurations">
+        <div class="collapse-inner">
+          <a class="collapse-item pointerCursor" routerLink="configurations">Config Tool</a>
+        </div>
+      </div>
+    </li>
+
+    <hr class="sidebar-divider">
+  </ul>
+
+  <!-- Navbar -->
+  <div class="navbar-content">
+    <nav class="navbar bg-black">
+      <form>
+        <div class="navbar-search">
+          <input type="text" class="search-input" placeholder="  Search..." aria-label="Search">
+          <button class="btn btn-danger" type="button">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </button>
+        </div>
+      </form>
+
+      <div class="settings">
+        <div ngbDropdown>
+          <button class="btn btn-settings btn-danger" ngbDropdownToggle>Wellcome {{ username }}
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+          </button>
+          <div class="dropdown" ngbDropdownMenu>
+            <button ngbDropdownItem><i class="fa fa-user" aria-hidden="true"></i> Pofile</button>
+            <button ngbDropdownItem><i class="fa fa-wrench" aria-hidden="true"></i> Definitions</button>
+            <button ngbDropdownItem routerLink="/"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+
+    <!-- Container-->
+    <div class="container-fluid">
+      <router-outlet></router-outlet>
     </div>
+  </div>
 
 </div>

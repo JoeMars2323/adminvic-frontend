@@ -11,22 +11,21 @@ import { TvserieCrudComponent } from './restrict/dashboard-main/tvseries/tvserie
 
 
 const routes: Routes = [
-  /*{ path: '', redirectTo: '/login', pathMatch: 'full' },*/
   { path: 'main', component: DashboardMainComponent },
   { path: 'actors', component: ActorsComponent, children: [
-    { path: 'actor/create', component: ActorCrudComponent },
-    { path: 'actor/update/:id', component: ActorCrudComponent },
-    { path: 'actor/view/:id', component: ActorCrudComponent }
+    { path: 'create', component: ActorCrudComponent },
+    { path: 'update/:id', component: ActorCrudComponent },
+    { path: 'view/:id', component: ActorCrudComponent }
   ]},
   { path: 'films', component: FilmsComponent, children: [
-    { path: 'films/create', component: FilmCrudComponent },
-    { path: 'films/update/:id', component: FilmCrudComponent },
-    { path: 'films/view/:id', component: FilmCrudComponent }
+    { path: 'create', component: FilmCrudComponent },
+    { path: 'update/:id', component: FilmCrudComponent },
+    { path: 'view/:id', component: FilmCrudComponent }
   ]},
   { path: 'tvseries', component: TvseriesComponent, children: [
-    { path: 'tvseries/create', component: TvserieCrudComponent },
-    { path: 'tvseries/update/:id', component: TvserieCrudComponent },
-    { path: 'tvseries/view/:id', component: TvserieCrudComponent }
+    { path: 'create', component: TvserieCrudComponent },
+    { path: 'update/:id', component: TvserieCrudComponent },
+    { path: 'view/:id', component: TvserieCrudComponent }
   ]}
 ];
 

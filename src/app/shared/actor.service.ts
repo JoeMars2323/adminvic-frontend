@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams  } from '@angular/common/http';
 import { Observable } from 'rxjs';
+
 import { Actor } from 'src/app/restrict/models/actor';
 
 @Injectable({
@@ -17,13 +18,13 @@ export class ActorService {
 
   // rest functions
   public getActorById(id: number): Observable<Actor> {
-    let params = new HttpParams().set('id', id);
-    return this.http.get<Actor>(this.url + 'actors/actor/', { params: params });
+    let params = new HttpParams().set('id', id.toString());
+    return this.http.get<Actor>(this.url + 'actors/actor/' + id);
   }
 
   public getActorByName(actorName: string): Observable<Actor[]> {
     let params = new HttpParams().set('actorName', actorName);
-    return this.http.get<Actor[]>(this.url + 'actors/name/', { params: params });
+    return this.http.get<Actor[]>(this.url + 'actors/name', { params: params });
   }
 
    public getAllActors(): Observable<Actor[]> {
@@ -40,12 +41,12 @@ export class ActorService {
 
   public deleteActor(id: number): Observable<boolean> {
     let params = new HttpParams().set('id', id.toString());
-    return this.http.patch<boolean>(this.url + 'actors/actor/', { params: params });
+    return this.http.patch<boolean>(this.url + 'actors/actor', { params: params });
   }
 
   public deleteActorPhysically(id: number): Observable<boolean> {
     let params = new HttpParams().set('id', id.toString());
-    return this.http.delete<boolean>(this.url + 'actors/actor/', { params: params });
+    return this.http.delete<boolean>(this.url + 'actors/actor', { params: params });
   }
 
 }
