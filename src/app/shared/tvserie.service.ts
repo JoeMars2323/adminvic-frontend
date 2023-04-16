@@ -39,9 +39,4 @@ export class TvserieService {
     return this.http.patch<boolean>(this.url + 'tvseries/tvserie', { params: params });
   }
 
-  public deleteTvseriePhysically(id: number): Observable<boolean> {
-    let params = new HttpParams().set('id', id.toString());
-    return this.http.delete<boolean>(this.url + 'tvseries/tvserie', { params: params });
-  }
-
 }

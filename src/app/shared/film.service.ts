@@ -39,9 +39,4 @@ export class FilmService {
     return this.http.patch<boolean>(this.url + 'films/film/', { params: params });
   }
 
-  public deleteFilmPhysically(id: number): Observable<boolean> {
-    let params = new HttpParams().set('id', id.toString());
-    return this.http.delete<boolean>(this.url + 'films/film/', { params: params });
-  }
-
 }

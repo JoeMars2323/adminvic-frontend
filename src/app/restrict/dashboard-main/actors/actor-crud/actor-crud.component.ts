@@ -17,9 +17,19 @@ export class ActorCrudComponent implements OnInit {
   read = false;
   update = false;
 
-  id!: number;
-  actor: Actor = new Actor();
+  disableActorName =  false
+  disableBirthName =  false;
+  disableNickname = false;
+  disableCountry = false;
+  disableCity = false;
+  disableBirthdate = false;
+  disableBiography = false;
+  disableHeight = false;
 
+  actor: Actor = new Actor();
+  actorName!: string;
+
+  @Input() id!: number;
   @Input() action!: string;
   @Output() showMain = new EventEmitter<boolean>();
 
@@ -52,16 +62,20 @@ export class ActorCrudComponent implements OnInit {
         this.create = false;
         this.read = true;
         this.update = false;
-      break;
+        this.disableActorName = true;
+        this.disableBirthName = true;
+        this.disableBirthName =  true;
+        this.disableNickname = true;
+        this.disableCountry = true;
+        this.disableCity = true;
+        this.disableBirthdate = true;
+        this.disableHeight = true;
+        this.disableBiography = true;
+        break;
     }
   }
 
   loadData() {
-    this.route.paramMap.subscribe(
-      (params: Params) => {
-        this.id = params['id'];
-      }
-    )
     this.actorService.getActorById(this.id).subscribe(
       data => {
         this.actor = data;
@@ -81,14 +95,19 @@ export class ActorCrudComponent implements OnInit {
   }
 
   onClear() {
-    this.clearActor
+    this.clearActor();
   }
 
   onSubmit() {
-    this.actorService.createActor(this.actor).subscribe(
-     data => {}
-    );
-    this.clearActor();
+    switch(this.action) {
+      case 'Create new Actor':
+        this.actorService.createActor(this.actor).subscribe();
+          this.clearActor();
+          break;
+        case 'Update Actor':
+          this.actorService.updateActor(this.actor).subscribe();
+    }
+    
  }
 
 }

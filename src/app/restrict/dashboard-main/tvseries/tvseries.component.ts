@@ -19,9 +19,10 @@ export class TvseriesComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute, private tvserieService: TvserieService) { }
 
   ngOnInit(): void {
+    this.getTvseriesList();
   }
 
-  public getActorList() {
+  public getTvseriesList() {
     this.tvserieService.getAllTvseries().subscribe(
       data => {
         this.tvserieList = data;

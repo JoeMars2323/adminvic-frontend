@@ -16,6 +16,7 @@ export class ActorsComponent implements OnInit {
   mainVisible = true;
   childVisible = false;
   action!: string;
+  id!: number;
 
   constructor(private router: Router, private route: ActivatedRoute, private actorService: ActorService) { }
 
@@ -34,24 +35,28 @@ export class ActorsComponent implements OnInit {
     this.action = 'Create new Actor';
     this.mainVisible = false;
     this.childVisible = true;
-    this.router.navigate(['../actors/create'], { relativeTo: this.route });
+    this.router.navigate(['../actors/create'], {relativeTo: this.route});
   }
 
   onUpdate(index: number) {
+    this.id = index + 1;
     this.action = 'Update Actor';
     this.mainVisible = false;
     this.childVisible = true;
-    this.router.navigate(['../actors/update', ++index], { relativeTo: this.route });
+    this.router.navigate(['../actors/update', this.id], {relativeTo: this.route});
   }
 
   onView(index: number) {
+    this.id = index + 1;
     this.action = 'Vew Actor';
     this.mainVisible = false;
     this.childVisible = true;
-    this.router.navigate(['../actors/view', ++index], { relativeTo: this.route });
+    this.router.navigate(['../actors/view', this.id], {relativeTo: this.route});
   }
 
-  onDelete() {
+  onDelete(index: number) {
+    this.action = 'Delete Actor';
+    this.actorService.deleteActor(++index).subscribe();
   }
 
   showMainEvent(flag: boolean) {

@@ -10,45 +10,45 @@
     <div class="form-crud">
 
         <div class="col-sm-8">
-            <label class="label" for="name">Name:</label>
-            <input required id="name" name="name" type="text" class="form-control ml-1" 
+            <label class="label">Name:</label>
+            <input [disabled]='disableActorName' id="name" name="name" type="text" class="form-control ml-1" 
                 [(ngModel)]="actor.actorName">
         </div>
         
         <div class="col-sm-8">
-            <label class="label" for="date" >Birth Name:</label>
-            <input required id="date" name="date" type="text" class="form-control" 
+            <label class="label" >Birth Name:</label>
+            <input [disabled]='disableBirthName' id="birthName" name="birthName" type="text" class="form-control" 
                 [(ngModel)]="actor.actorBirthName">
         </div>
 
         <div class="col-sm-8">
-            <label class="label" for="name">Nickname:</label>
-            <input required id="name" name="name" type="text" class="form-control ml-1" 
+            <label class="label">Nickname:</label>
+            <input [disabled]='disableNickname' id="nickname" name="nickname" type="text" class="form-control ml-1" 
                 [(ngModel)]="actor.actorNickname">
         </div>
         
         <div class="row">
             <div class="col-sm-4">
-                <label class="label" for="date">Country:</label>
-                <input required id="date" name="date" type="text" class="form-control" 
+                <label class="label">Country:</label>
+                <input [disabled]='disableCountry' id="country" name="country" type="text" class="form-control" 
                     [(ngModel)]="actor.actorCountry">
             </div>
             <div class="col-sm-4">
-                <label class="label" for="date">City:</label>
-                <input required id="date" name="date" type="text" class="form-control" 
+                <label class="label">City:</label>
+                <input [disabled]='disableCity' id="city" name="city" type="text" class="form-control" 
                     [(ngModel)]="actor.actorCity">
             </div>
         </div>
 
         <div class="row">
             <div class="col-sm-4">
-                <label class="label" for="date"> Birthdate:</label>
-                <input required id="date" name="date" type="text" class="form-control" 
+                <label class="label"> Birthdate:</label>
+                <input [disabled]='disableBirthdate' id="birthDate" name="birthDate" type="text" class="form-control" 
                     [(ngModel)]="actor.actorBirthDate">
             </div>
             <div class="col-sm-2">
-                <label class="label" for="date">Height:</label>
-                <input required id="date" name="date" type="text" class="form-control" 
+                <label class="label">Height:</label>
+                <input [disabled]='disableHeight' id="height" name="height" type="text" class="form-control" 
                     [(ngModel)]="actor.actorHeight">
             </div>
         </div>
@@ -56,7 +56,7 @@
         <div class="row">
             <div class="col-sm-8">
                 <label class="label"> Biography:</label>
-                <textarea name="expenseName" type="text" rows="2" class="form-control ml-1" 
+                <textarea [disabled]='disableBiography' name="biography" type="text" rows="6" class="form-control ml-1" 
                     [(ngModel)]="actor.actorBiography"></textarea>
             </div>
         </div>

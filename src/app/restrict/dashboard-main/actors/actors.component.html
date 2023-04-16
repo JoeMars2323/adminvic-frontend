@@ -4,7 +4,7 @@
     </div> 
     <div class="btn-create">
         <button class="btn btn-success" type="button" (click)="onCreate()">
-            <span>Create new Actor </span><i class="fa fa-plus" aria-hidden="true"></i>
+            <span>Create new Actor &nbsp;</span><i class="fa fa-plus" aria-hidden="true"></i>
         </button>
     </div>
     <table class="table table-bordered table-hover">
@@ -32,7 +32,7 @@
                     <i class="fa fa-refresh" aria-hidden="true"></i>
                 </button>
                 &nbsp;
-                <button class="btn btn-danger" type="button" (click)="onDelete()">
+                <button class="btn btn-danger" type="button" (click)="onDelete(i)">
                     <i class="fa fa-trash" aria-hidden="true"></i>
                 </button>
             </td>
@@ -42,6 +42,6 @@
 </div>
 
 <div *ngIf="childVisible">
-    <app-actor-crud [action]="action" (showMain)="showMainEvent($event)"></app-actor-crud>
+    <app-actor-crud [action]="action" [id]="id" (showMain)="showMainEvent($event)"></app-actor-crud>
 </div>
 
